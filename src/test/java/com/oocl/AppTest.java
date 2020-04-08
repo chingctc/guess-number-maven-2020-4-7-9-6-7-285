@@ -40,4 +40,11 @@ public class AppTest {
         String inputValue = "12";
         Assert.assertEquals("Wrong Input, input Again", app.checkCorrectNumberAndPosition(inputValue));
     }
+
+    @Test
+    public void should_return_alert_message_when_duplicate_value() {
+        App app = new App();
+        String inputValue = "1123";
+        Assert.assertEquals("Wrong Input, input Again", app.checkCorrectNumberAndPosition(inputValue));
+    }
 }

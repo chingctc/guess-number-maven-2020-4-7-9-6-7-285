@@ -36,9 +36,17 @@ public class App
         System.out.print(randomNumberArray.toString());
 
         for (int i = 0; i < inputNumberArray.size(); i++) {
+            for (int j = i+1; j < inputNumberArray.size(); j++) {
+                if(inputNumberArray.get(i).equals(inputNumberArray.get(j))) {
+                    System.out.println(inputNumberArray.get(i) + inputNumberArray.get(j) + "x");
+                    return "Wrong Input, input Again";
+                }
+            }
+        }
+
+        for (int i = 0; i < inputNumberArray.size(); i++) {
             if (inputNumberArray.get(i).equals(randomNumberArray.get(i))) {
                 aValue += 1;
-                System.out.println(aValue);
             } else {
                 if(randomNumberArray.contains(inputNumberArray.get(i))) {
                     bValue += 1;
