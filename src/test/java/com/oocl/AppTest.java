@@ -1,16 +1,7 @@
 package com.oocl;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.RepeatedTest;
-
-import java.io.ByteArrayInputStream;
-import java.util.Scanner;
-import java.io.IOException;
-
-import static javafx.beans.binding.Bindings.when;
 
 public class AppTest {
 
@@ -48,11 +39,4 @@ public class AppTest {
         String inputValue = "1123";
         Assert.assertEquals("Wrong Input, input Again", app.checkCorrectNumberAndPosition(inputValue));
     }
-
-//    @RepeatedTest(6)
-//    public void should_get_input_from_console() {
-//        App app = new App();
-//        System.setIn(new ByteArrayInputStream("1234".getBytes()));
-//        Assert.assertEquals("4A0B", app.checkCorrectNumberAndPosition());
-//    }
 }

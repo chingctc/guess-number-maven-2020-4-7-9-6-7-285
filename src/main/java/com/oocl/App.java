@@ -2,42 +2,39 @@ package com.oocl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    private String randomNumber = "1234";
-    private int aValue = 0;
-    private int bValue = 0;
+public class App {
+    private ArrayList<String> randomNumberArray = new ArrayList<String>();
+    ArrayList<Integer> numberListForRandomNumber = new ArrayList<Integer>(Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9));
     private String result = "";
-    String randomFirsDigit = randomNumber.substring(0,1);
-    String randomSeconDigit = randomNumber.substring(1,2);
-    String randomThirDigit = randomNumber.substring(2,3);
-    String randomLasDigit =  randomNumber.substring(3,4);
 
     public String checkCorrectNumberAndPosition(String inputValue) {
-        if(inputValue.length() != 4) {
+        int aValue = 0;
+        int bValue = 0;
+        if (inputValue.length() != 4) {
             return "Wrong Input, input Again";
         }
 
-        String input1Digit = inputValue.substring(0,1);
-        String input2Digit = inputValue.substring(1,2);
-        String input3Digit = inputValue.substring(2,3);
-        String input4Digit =  inputValue.substring(3,4);
-        ArrayList<String> inputNumberArray = new ArrayList<String>(Arrays.asList(input1Digit,input2Digit,input3Digit,input4Digit));
-        System.out.print(inputNumberArray.toString());
-
-        ArrayList<String> randomNumberArray = new ArrayList<String>(Arrays.asList(randomFirsDigit,randomSeconDigit,randomThirDigit,randomLasDigit));
+        if (randomNumberArray.size() == 0) {
+            for (int count = 0; count < 4; count++) {
+                Random rand = new Random();
+                int randomIndex = rand.nextInt(numberListForRandomNumber.size());
+                randomNumberArray.add(numberListForRandomNumber.get(randomIndex) + "");
+                numberListForRandomNumber.remove(randomIndex);
+            }
+        }
         System.out.print(randomNumberArray.toString());
 
-        for (int i = 0; i < inputNumberArray.size(); i++) {
-            for (int j = i+1; j < inputNumberArray.size(); j++) {
-                if(inputNumberArray.get(i).equals(inputNumberArray.get(j))) {
-                    System.out.println(inputNumberArray.get(i) + inputNumberArray.get(j) + "x");
+        ArrayList<String> inputNumberArray = new ArrayList<String>();
+        for (int inputValueIndex = 0; inputValueIndex < inputValue.length(); inputValueIndex++) {
+            inputNumberArray.add(String.valueOf(inputValue.charAt(inputValueIndex)));
+        }
+
+        for (int arrayIndex = 0; arrayIndex < inputNumberArray.size(); arrayIndex++) {
+            for (int secondArrayIndex = arrayIndex + 1; secondArrayIndex < inputNumberArray.size(); secondArrayIndex++) {
+                if (inputNumberArray.get(arrayIndex).equals(inputNumberArray.get(secondArrayIndex))) {
                     return "Wrong Input, input Again";
                 }
             }
@@ -47,7 +44,7 @@ public class App
             if (inputNumberArray.get(i).equals(randomNumberArray.get(i))) {
                 aValue += 1;
             } else {
-                if(randomNumberArray.contains(inputNumberArray.get(i))) {
+                if (randomNumberArray.contains(inputNumberArray.get(i))) {
                     bValue += 1;
                 }
             }
