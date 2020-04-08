@@ -1,9 +1,8 @@
 package com.oocl;
 
-import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * Hello world!
@@ -55,5 +54,13 @@ public class App
         }
         result = aValue + "A" + bValue + "B";
         return result;
+    }
+
+    public String checkCorrectNumberAndPosition() {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please input a 4-digit number: ");
+        String inputNumber = in.nextLine();
+        System.out.print(inputNumber);
+        return checkCorrectNumberAndPosition(inputNumber);
     }
 }
