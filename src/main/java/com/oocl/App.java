@@ -21,6 +21,10 @@ public class App
     String randomLasDigit =  randomNumber.substring(3,4);
 
     public String checkCorrectNumberAndPosition(String inputValue) {
+        if(inputValue.length() != 4) {
+            return "Wrong Input, input Again";
+        }
+
         String input1Digit = inputValue.substring(0,1);
         String input2Digit = inputValue.substring(1,2);
         String input3Digit = inputValue.substring(2,3);
@@ -30,7 +34,6 @@ public class App
 
         ArrayList<String> randomNumberArray = new ArrayList<String>(Arrays.asList(randomFirsDigit,randomSeconDigit,randomThirDigit,randomLasDigit));
         System.out.print(randomNumberArray.toString());
-
 
         for (int i = 0; i < inputNumberArray.size(); i++) {
             if (inputNumberArray.get(i).equals(randomNumberArray.get(i))) {

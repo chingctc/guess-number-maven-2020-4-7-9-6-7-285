@@ -33,4 +33,11 @@ public class AppTest {
         String inputValue = "0324";
         Assert.assertEquals("1A2B", app.checkCorrectNumberAndPosition(inputValue));
     }
+
+    @Test
+    public void should_return_alert_message_when_input_less_than_4_digit() {
+        App app = new App();
+        String inputValue = "12";
+        Assert.assertEquals("Wrong Input, input Again", app.checkCorrectNumberAndPosition(inputValue));
+    }
 }
