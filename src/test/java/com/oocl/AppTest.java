@@ -1,7 +1,10 @@
 package com.oocl;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayInputStream;
 
 public class AppTest {
 
@@ -15,8 +18,8 @@ public class AppTest {
     @Test
     public void should_return_value_for_partial_correct_number() {
         App app = new App();
-        String inputValue = "1567";
-        Assert.assertEquals("1A0B", app.checkCorrectNumberAndPosition(inputValue));
+        String inputValue = "4321";
+        Assert.assertEquals("0A4B", app.checkCorrectNumberAndPosition(inputValue));
     }
 
     @Test
@@ -39,4 +42,5 @@ public class AppTest {
         String inputValue = "1123";
         Assert.assertEquals("Wrong Input, input Again", app.checkCorrectNumberAndPosition(inputValue));
     }
+
 }

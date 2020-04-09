@@ -53,11 +53,5 @@ public class App {
         return result;
     }
 
-    public String checkCorrectNumberAndPosition() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Please input a 4-digit number: ");
-        String inputNumber = in.nextLine();
-        System.out.print(inputNumber);
-        return checkCorrectNumberAndPosition(inputNumber);
     }
 }
