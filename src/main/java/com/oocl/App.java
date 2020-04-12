@@ -16,7 +16,7 @@ public class App {
 
         ArrayList<String> inputNumberArray = extractInputNumberForComparison(inputValue);
 
-        if (checkDuplicate(inputNumberArray)) return "Wrong Input, input Again";
+        if (checkSelfDuplicate(inputNumberArray)) return "Wrong Input, input Again";
 
         for (int inputArrayIndex = 0; inputArrayIndex < inputNumberArray.size(); inputArrayIndex++) {
             if (inputNumberArray.get(inputArrayIndex).equals(randomNumberArray.get(inputArrayIndex))) {
@@ -36,12 +36,17 @@ public class App {
         return inputNumberArray;
     }
 
-    private boolean checkDuplicate(ArrayList<String> inputNumberArray) {
+    private boolean checkSelfDuplicate(ArrayList<String> inputNumberArray) {
         for (int arrayIndex = 0; arrayIndex < inputNumberArray.size(); arrayIndex++) {
-            for (int secondArrayIndex = arrayIndex + 1; secondArrayIndex < inputNumberArray.size(); secondArrayIndex++) {
-                if (inputNumberArray.get(arrayIndex).equals(inputNumberArray.get(secondArrayIndex))) {
-                    return true;
-                }
+            if (checkInnerSelfDuplicate(inputNumberArray, arrayIndex)) return true;
+        }
+        return false;
+    }
+
+    private boolean checkInnerSelfDuplicate(ArrayList<String> inputNumberArray, int arrayIndex) {
+        for (int secondArrayIndex = arrayIndex + 1; secondArrayIndex < inputNumberArray.size(); secondArrayIndex++) {
+            if (inputNumberArray.get(arrayIndex).equals(inputNumberArray.get(secondArrayIndex))) {
+                return true;
             }
         }
         return false;
