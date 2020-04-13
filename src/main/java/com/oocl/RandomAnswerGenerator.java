@@ -11,6 +11,16 @@ public class RandomAnswerGenerator implements AnswerGenerator {
     public static final int ANSWER_LENGTH = 4;
 
     public ArrayList<String> generate(){
+        /**
+         * Hardcoded randomNumberArray = 1234
+         * For Testing only, should remove after unit test
+         */
+//        randomNumberArray.add("1");
+//        randomNumberArray.add("2");
+//        randomNumberArray.add("3");
+//        randomNumberArray.add("4");
+        /** End of hardcoded logic for randomNumberArray
+         */
         if (randomNumberArray.size() == EMPTY) {
             for (int count = 0; count < ANSWER_LENGTH; count++) {
                 Random rand = new Random();

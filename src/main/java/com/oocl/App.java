@@ -13,7 +13,8 @@ public class App {
         if (inputValue.length() != DIGIT_NUMBER) {
             return "Wrong Input, input Again";
         }
-
+        RandomAnswerGenerator randomAnswerGenerator = new RandomAnswerGenerator();
+        randomNumberArray = randomAnswerGenerator.generate();
         ArrayList<String> inputNumberArray = extractInputNumberForComparison(inputValue);
 
         if (checkSelfDuplicate(inputNumberArray)) return "Wrong Input, input Again";
