@@ -16,5 +16,4 @@ public class ConsoleInputReaderTest {
         String userInput = inputReader.getInput();
         Assert.assertEquals(inputValue, userInput);
     }
-
 }

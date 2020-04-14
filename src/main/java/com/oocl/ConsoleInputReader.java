@@ -3,11 +3,14 @@ package com.oocl;
 import java.util.Scanner;
 
 public class ConsoleInputReader implements InputReader {
+
+    public static final String ASK_FOR_INPUT_MESSAGE = "Please input a 4-digit number: ";
+
     @Override
     public String getInput() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Please input a 4-digit number: ");
-        String inputNumber = in.nextLine();
+        Scanner inputValue = new Scanner(System.in);
+        System.out.print(ASK_FOR_INPUT_MESSAGE);
+        String inputNumber = inputValue.nextLine();
         return inputNumber;
     }
 }
