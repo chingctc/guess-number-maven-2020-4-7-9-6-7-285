@@ -2,7 +2,7 @@ package com.oocl;
 
 import java.util.ArrayList;
 
-public class App {
+public class GuessNumberLogic {
     public static final int DIGIT_NUMBER = 4;
     public static final String ANSWER_RESULT_PATTERN = "%sA%sB";
     public static final String WRONG_INPUT_ERROR = "Wrong Input, input Again";

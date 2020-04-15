@@ -9,13 +9,13 @@ public class MainApp {
         int count = 0;
         String result = "";
         String userInput = "";
-        App app = new App();
+        GuessNumberLogic guessNumberLogic = new GuessNumberLogic();
         RandomAnswerGenerator randomAnswerGenerator = new RandomAnswerGenerator();
-        app.randomNumberArray = randomAnswerGenerator.generate();
+        guessNumberLogic.randomNumberArray = randomAnswerGenerator.generate();
         ConsoleInputReader inputReader = new ConsoleInputReader();
         do {
             userInput = inputReader.getInput();
-            result = app.checkCorrectNumberAndPosition(userInput);
+            result = guessNumberLogic.checkCorrectNumberAndPosition(userInput);
             System.out.println(result);
             count++;
         } while (!CORRECT_ANSWER_MSG.equals(result) && count <= MAX_NUMBER_OF_TRIAL);
